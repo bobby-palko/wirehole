@@ -1,8 +1,7 @@
 version: "3"
 
 networks:
-  macvlan:
-    external: true
+  # macvlan:
   private_network:
     ipam:
       driver: default
@@ -77,8 +76,10 @@ services:
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN
+    ports:
+      - 80:80
     networks:
       private_network:
         ipv4_address: 10.2.0.100
-      macvlan:
-        ipv4_address: 10.1.1.5
+      # macvlan:
+      #   ipv4_address: 10.1.1.5
