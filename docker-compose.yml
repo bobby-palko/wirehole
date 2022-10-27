@@ -76,8 +76,10 @@ services:
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN
-    ports:
+    ports: # exposing ports on local network to use within home too
+      - 53:53
       - 80:80
+      - 443:443
     networks:
       private_network:
         ipv4_address: 10.2.0.100
